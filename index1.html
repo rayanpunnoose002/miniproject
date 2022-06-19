@@ -21,7 +21,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="./index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="./home.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
@@ -240,6 +240,54 @@ $.ajax(settings).done(function(response){
 });
 }
         </script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-analytics.js";
+    import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword,signOut  } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
+  
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAC-BC4N5_H_GO2eqc8jFPgA3oyZ2hnn3E",
+      authDomain: "vanko-8818f.firebaseapp.com",
+      databaseURL: "https://vanko-8818f-default-rtdb.firebaseio.com",
+      projectId: "vanko-8818f",
+      storageBucket: "vanko-8818f.appspot.com",
+      messagingSenderId: "51516373245",
+      appId: "1:51516373245:web:6e5efef6d5cfa2d0982694",
+      measurementId: "G-72ZZNBMR1L"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    submit.addEventListener('click',(e) => {
+      
+  
 
+    const auth = getAuth();
+    
+    signOut(auth).then(() => {
+        location.href = "LOGIN.html"
+    }).catch((error) => {
+        const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      alert(errorMessage)
+    });
+
+  
+      
+   
+  
+    })
+  </script>
     </body>
 </html>
